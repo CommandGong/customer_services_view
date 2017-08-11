@@ -1,0 +1,23 @@
+#login_area{
+	background-color:rgba(0,91,255,0.6);
+	margin-top: 100px;
+}
+.table_approved{
+	background-color: rgb(153,217,234)!important;	
+}
+
+.table_error{
+	background-color: rgba(255,0,0,0.8)!important;
+}
+
+.headerbar{
+	background-color: #0083c1;
+ 
+}
+
+.footer{
+  background-color: rgba(178,175,169,1.0);
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
