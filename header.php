@@ -1,8 +1,22 @@
 <head>
 	<title>Welcome to ScopePharmacy  System</title>
 	<?php 
-
+		session_start();
 		if(!defined('__Order_info_dir__'))define('__Order_info_dir__', '../order_info/');//lib section
+
+	?>
+	<?php
+		if(isset($_SESSION['user_type']) && !empty($_SESSION['user_type'])){
+			
+			$user_type=$_SESSION['user_type'];
+			$user_name=$_SESSION['user_valid_name'];
+		}
+		else{
+	//		header('Location:index.php');
+			echo "no user type";
+		}//what if user have no code?
+		
+
 	?>
 
 <script

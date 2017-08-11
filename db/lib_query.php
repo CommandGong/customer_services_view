@@ -154,11 +154,12 @@ class lib_query {
 			}
 	}	
 
-	public function getOrxTable() {
-		
+	public function getOrxTable($limited_num , $page_num) {
+ 		$limited_num=100;
+ 		$page_num=0;
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection(); 
-		$sql_query = "SELECT * FROM archive_orx";
+		$sql_query = "SELECT * FROM archive_orx LIMIT ".$limited_num." OFFSET ".$page_num*$limited_num;
 		$result = $mysqli->query($sql_query);
 		$i = 0;
 		echo "<thead>
@@ -417,10 +418,7 @@ class lib_query {
 				        <th>Order#</th>
 				        <th>Filename</th> 
 				        <th>Submited</th>
-				        <th>Submit_Date</th>
-				        <th>Authorized</th>
-				        <th>Dr Name</th>
-				        <th>Authorized Date</th>
+				        <th>Submit_Date</th> 
 				        <th>Image</th>
 				        <th>First name</th>
 				        <th>Last name</th>
@@ -455,20 +453,26 @@ class lib_query {
 						.$data['order_num']. ' </td><td>'
 						.$data['filename']. ' </td><td>' 
 						.$data['submit_by']. ' </td><td>'
-						.$data['submit_date']. ' </td><td>'
-						.$dr_authorized. ' </td><td>'
-						.$data['dr_authorized_by']. ' </td><td>'
-						.$data['dr_authorized_date']. '</td> 
-						'.$customer_info["lastname"] .'</td>
+						.$data['submit_date']. ' </td>
+						<td>
+						<a href="'.$image_path.'" target="_blank"><img src="'.$image_path.'" class="limite_image" alt="scope_pharmacy" ></img></a>
+						
+
+						</td>
 						 
 
 						<td>
-						<a href="'.$image_path.'" target="_blank"><img src="'.$image_path.'" class="limite_image" alt="scope_pharmacy" ></img></td></a>
-						<td> 
+
 						'.$customer_info["firstname"] .'</td>
+
+						</td>
+						<td> 
+						
+							'.$customer_info["lastname"] .'
 						<td>
 						
 						'.$gender. '</td>
+
 						<td> 
 						'.$customer_info["dob"]  .'</td>
 						<td> 

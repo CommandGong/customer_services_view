@@ -1,21 +1,9 @@
 <html>
 <?php 
 	require_once("header.php");
-	session_start();
-?>
-<?php
-	if(isset($_SESSION['user_type']) && !empty($_SESSION['user_type'])){
-		
-		$user_type=$_SESSION['user_type'];
-		$user_name=$_SESSION['user_valid_name'];
-	}
-	else{
-//		header('Location:index.php');
-		echo "no user type";
-	}//what if user have no code?
-	
 
 ?>
+
 
 <style>
 	.limite_image{
